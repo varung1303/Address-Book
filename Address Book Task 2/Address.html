@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Address Book</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="Styles/Address.css">
+</head>
+
+<body>
+	
+	<div id="main">
+		<p id="title"> Address Book </p>
+	</div>
+	<div id="menuheader">
+		<button id="home" href="#">HOME</button>
+		<button id="add" href="#">+ADD</button>
+		<span><img id="blog" src="Images/blog-icon.png" align="right"></span>
+	</div>
+	<div id="myModal" class="modal">
+		<div class="modal-content">
+			<h1 style="text-align: center;font-family:'Calibri Light','Gill Sans','Open Sans',Geneva,Helvetica,Arial,sans-serif; margin-top: 0;">ADD NEW CONTACT</h1>
+			<form action="#" id="myForm">
+				<label class="required" for="fname" style="font-family: Calibri; font-size: 17px;"><b>Name: </b></label><br>
+				<input class="form-fields type1 " type="text" id="name" name="name" required><br><br>
+				<label class="required" for="mail" style="font-family: Calibri;font-size: 17px;"><b>Email: </label><br>
+				<input class="form-fields type1 " type="email" id="email" name="mail" required><br><br>
+				<label class="required" for="mobile" style="font-family: Calibri;font-size: 17px;"><b>Mobile: </label>
+				<label for="mobile" style="margin-left: 240px;font-family: Calibri;font-size: 17px;" ><b>Landline:</label><br>
+				<input class="form-fields " type="tel" id="mobile" name="mobile" pattern="^\d{10}$" required>
+				<input class="form-fields " type="tel" id="landline" name="landline" style="margin-left: 50px;"><br><br>
+				<label for="fname" style="font-family: Calibri;font-size: 17px;"><b>Website</label><br>
+				<input class="form-fields type1" type="text" id="website" name="website" ><br><br>
+				<label for="address" style="font-family: Calibri;font-size: 17px;"><b>Address Line 1</label><br>
+				<textarea class="addressstyle form-fields" id="address1" name="address1" rows="1" cols="66.5" style="resize: none;"></textarea><br>
+				<label for="address" style="font-family: Calibri;font-size: 17px;"><b>Address Line 2</label><br>
+				<textarea class=" addressstyle form-fields" id="address2" name="address2" rows="1" cols="66.5" style="resize: none;"></textarea><br>
+				<label for="address" style="font-family: Calibri;font-size: 17px;"><b>Address Line 3</label><br>
+				<textarea class="addressstyle form-fields" id="address3" name="address3" rows="1" cols="66.5" style="resize: none;"></textarea><br><br>
+				<input class = "buttonstyle" type="submit" value="Add" id="adddetails" style="margin-left:553px;"></input>
+				<input class = "buttonstyle" type="button" value="Cancel" id="candetails" style="margin-left: 5px;" onclick="hideModal()"></input>
+			</form> 
+		</div>
+	</div>
+
+ 
+
+	<div id="myModalEdit" class="modalEdit">
+		<div class="modal-content">
+			<h1 style="text-align: center;font-family:'Calibri Light','Gill Sans','Open Sans',Geneva,Helvetica,Arial,sans-serif; margin-top: 0;">Edit New Contact</h1>
+			<form action="#" id="editForm">
+				<label class="required" for="fname" style="font-family: Calibri;font-size: 17px;"><b>Name: </b></label><br>
+				<input class="type1" type="text" id="editname" name="name" required></input><br><br>
+				<label class="required" for="mail" style="font-family: Calibri;font-size: 17px;"><b>Email: </label><br>
+				<input class="type1 " type="email" id="editemail" name="mail" required></input><br><br>
+				<label class="required" for="mobile" style="font-family: Calibri;font-size: 17px;"><b>Mobile: </label>
+				<label for="mobile" style="margin-left: 240px;font-family: Calibri;font-size: 17px;" ><b>Landline:</label><br>
+				<input class="type4 " type="tel" id="editmobile" name="mobile" required pattern="^\d{10}$"></input>
+				<input class="type4" type="tel" id="editlandline" name="landline" style="margin-left: 50px;"></input><br><br>
+				<label for="fname" style="font-family: Calibri;font-size: 17px;"><b>Website</label><br>
+				<input class="type1" type="text" id="editwebsite" name="website" ></input><br><br>
+				<label for="address" style="font-family: Calibri;font-size: 17px;"><b>Address</label><br>
+				<textarea class="addressstyle form-fields" id="editaddress1" name="address1" rows="1" cols="66.5" style="resize: none;"></textarea><br>
+				<label for="address" style="font-family: Calibri;font-size: 17px;"><b>Address Line 2</label><br>
+				<textarea class="addressstyle form-fields" id="editaddress2" name="address2" rows="1" cols="66.5" style="resize: none;"></textarea><br>
+				<label for="address" style="font-family: Calibri;font-size: 17px;"><b>Address Line 3</label><br>
+				<textarea class="addressstyle form-fields" id="editaddress3" name="address3" rows="1" cols="66.5" style="resize: none;"></textarea><br><br>
+				<input class = "buttonstyle" type="submit" value="Update" id="editdetails" style="margin-left:553px; "></input>
+				<input class = "buttonstyle" type="button" value="Cancel" id="candetails" style="margin-left: 5px;" onclick="hideEditModal()" ></input>
+			</form> 
+		</div>
+	</div>
+
+
+
+	<div class="row">
+		<p id="contacts">CONTACTS</p>
+	</div>
+
+	<div class="row">
+		<div class="columnlist">
+			<div id="watermark" style="opacity: 0.1;margin: auto;width: 300px; font-size: 29px;margin-top: 40%;font-family:'Calibri Light','Gill Sans','Open Sans',Geneva,Helvetica,Arial,sans-serif;">NO CONTACTS AVAILABLE</div>
+			<div class="contact-list" style="overflow: hidden;">
+			</div>
+		</div>
+
+		<div class="main-display-contact" id="mainDisplayContact" style="width: 500px; height:350px; margin-left: 5%; float: left;border: 2px solid black; overflow: hidden;min-width: 500px;display: none;">
+		
+		
+
+		</div>
+	</div>	
+						
+
+
+	
+	<script src="Scripts/Address.js"></script>
+	<script src="Scripts/Utility.js"></script>
+	<script src="Scripts/Services.js"></script>
+</body>
+</html>
